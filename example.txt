@@ -1,3 +1,5 @@
 int    edad    = 10
 char   b       = "b"
 double decimal = 1.0
+float  radio
+uint32_t mascara = 255
