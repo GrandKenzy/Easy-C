@@ -1,0 +1,133 @@
+Stack parser-log ├<Node PARSER L=0>:
+├━━━━━━━━<Node PARSER-INFO-NODE L=1>:
+|         ✓ ParseControl inicializado con 13 tokens
+|         ◦ Iniciando análisis sintáctico con gramática {PROGRAM(code=0, name='PROGRAM', grammar=False): Many(<Ref> -> DECLARATION), DECLARATION(code=1, name='DECLARATION', grammar=False): Alt(<Ref> -> DECLARATION)}
+|         ◦ Consumiendo [0]: KEYWORD = 'int'
+|         ✓ Cursor físico avanzado a posición 1
+├━━━━━━━━━━━━<Node Alt L=2>:
+|             ◦ Savepoint creado: pos=1, virtual=0, bracket=0
+|             ✦ Backtracking: restaurando cursor físico 1 -> 1
+├━━━━━━━━━━━━━━━━<Node Ref L=3>:
+├━━━━━━━━━━━━━━━━━━━━<Node Alt L=4>:
+|                     ◦ Savepoint creado: pos=1, virtual=0, bracket=0
+|                     ✦ Backtracking: restaurando cursor físico 1 -> 1
+├━━━━━━━━━━━━━━━━━━━━━━━━<Node Ref L=5>:
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Seq L=6>:
+|                             ◦ Savepoint creado: pos=1, virtual=0, bracket=0
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchGroup L=7>:
+|                                 ◦ Savepoint creado: pos=1, virtual=0, bracket=0
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=7>:
+|                                 ◦ Savepoint creado: pos=1, virtual=0, bracket=0
+|                                 ◦ Consumiendo [1]: IDENT = 'edad'
+|                                 ✓ Cursor físico avanzado a posición 2
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=7>:
+|                                 ◦ Savepoint creado: pos=2, virtual=0, bracket=0
+|                                 ◦ Consumiendo [2]: ASSIGN = '='
+|                                 ✓ Cursor físico avanzado a posición 3
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Ref L=7>:
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Alt L=8>:
+|                                     ◦ Savepoint creado: pos=3, virtual=0, bracket=0
+|                                     ✦ Backtracking: restaurando cursor físico 3 -> 3
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=9>:
+|                                         ◦ Savepoint creado: pos=3, virtual=0, bracket=0
+|                                         ◦ Consumiendo [3]: NUMBER = 10
+|                                         ✓ Cursor físico avanzado a posición 4
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Opt L=7>:
+|                                 ◦ Savepoint creado: pos=4, virtual=0, bracket=0
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=8>:
+|                                     ◦ Savepoint creado: pos=4, virtual=0, bracket=0
+|                                     ◦ Consumiendo [4]: KEYWORD = 'char'
+|                                     ✓ Cursor físico avanzado a posición 5
+|                                     ✦ Backtracking: restaurando cursor físico 5 -> 4
+|                                 ✦ Backtracking: restaurando cursor físico 4 -> 4
+|         ◦ Consumiendo [4]: KEYWORD = 'char'
+|         ✓ Cursor físico avanzado a posición 5
+├━━━━━━━━━━━━<Node Alt L=2>:
+|             ◦ Savepoint creado: pos=5, virtual=0, bracket=0
+|             ✦ Backtracking: restaurando cursor físico 5 -> 5
+├━━━━━━━━━━━━━━━━<Node Ref L=3>:
+├━━━━━━━━━━━━━━━━━━━━<Node Alt L=4>:
+|                     ◦ Savepoint creado: pos=5, virtual=0, bracket=0
+|                     ✦ Backtracking: restaurando cursor físico 5 -> 5
+├━━━━━━━━━━━━━━━━━━━━━━━━<Node Ref L=5>:
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Seq L=6>:
+|                             ◦ Savepoint creado: pos=5, virtual=0, bracket=0
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchGroup L=7>:
+|                                 ◦ Savepoint creado: pos=5, virtual=0, bracket=0
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=7>:
+|                                 ◦ Savepoint creado: pos=5, virtual=0, bracket=0
+|                                 ◦ Consumiendo [5]: IDENT = 'b'
+|                                 ✓ Cursor físico avanzado a posición 6
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=7>:
+|                                 ◦ Savepoint creado: pos=6, virtual=0, bracket=0
+|                                 ◦ Consumiendo [6]: ASSIGN = '='
+|                                 ✓ Cursor físico avanzado a posición 7
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Ref L=7>:
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Alt L=8>:
+|                                     ◦ Savepoint creado: pos=7, virtual=0, bracket=0
+|                                     ✦ Backtracking: restaurando cursor físico 7 -> 7
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=9>:
+|                                         ◦ Savepoint creado: pos=7, virtual=0, bracket=0
+|                                         ◦ Consumiendo [7]: STRING = 'b'
+|                                         ✓ Cursor físico avanzado a posición 8
+|                                         ✦ Backtracking: restaurando cursor físico 8 -> 7
+|                                     ✦ Backtracking: restaurando cursor físico 7 -> 7
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=9>:
+|                                         ◦ Savepoint creado: pos=7, virtual=0, bracket=0
+|                                         ◦ Consumiendo [7]: STRING = 'b'
+|                                         ✓ Cursor físico avanzado a posición 8
+|                                         ✦ Backtracking: restaurando cursor físico 8 -> 7
+|                                     ✦ Backtracking: restaurando cursor físico 7 -> 7
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=9>:
+|                                         ◦ Savepoint creado: pos=7, virtual=0, bracket=0
+|                                         ◦ Consumiendo [7]: STRING = 'b'
+|                                         ✓ Cursor físico avanzado a posición 8
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Opt L=7>:
+|                                 ◦ Savepoint creado: pos=8, virtual=0, bracket=0
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=8>:
+|                                     ◦ Savepoint creado: pos=8, virtual=0, bracket=0
+|                                     ◦ Consumiendo [8]: KEYWORD = 'double'
+|                                     ✓ Cursor físico avanzado a posición 9
+|                                     ✦ Backtracking: restaurando cursor físico 9 -> 8
+|                                 ✦ Backtracking: restaurando cursor físico 8 -> 8
+|         ◦ Consumiendo [8]: KEYWORD = 'double'
+|         ✓ Cursor físico avanzado a posición 9
+├━━━━━━━━━━━━<Node Alt L=2>:
+|             ◦ Savepoint creado: pos=9, virtual=0, bracket=0
+|             ✦ Backtracking: restaurando cursor físico 9 -> 9
+├━━━━━━━━━━━━━━━━<Node Ref L=3>:
+├━━━━━━━━━━━━━━━━━━━━<Node Alt L=4>:
+|                     ◦ Savepoint creado: pos=9, virtual=0, bracket=0
+|                     ✦ Backtracking: restaurando cursor físico 9 -> 9
+├━━━━━━━━━━━━━━━━━━━━━━━━<Node Ref L=5>:
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Seq L=6>:
+|                             ◦ Savepoint creado: pos=9, virtual=0, bracket=0
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchGroup L=7>:
+|                                 ◦ Savepoint creado: pos=9, virtual=0, bracket=0
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=7>:
+|                                 ◦ Savepoint creado: pos=9, virtual=0, bracket=0
+|                                 ◦ Consumiendo [9]: IDENT = 'decimal'
+|                                 ✓ Cursor físico avanzado a posición 10
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=7>:
+|                                 ◦ Savepoint creado: pos=10, virtual=0, bracket=0
+|                                 ◦ Consumiendo [10]: ASSIGN = '='
+|                                 ✓ Cursor físico avanzado a posición 11
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Ref L=7>:
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Alt L=8>:
+|                                     ◦ Savepoint creado: pos=11, virtual=0, bracket=0
+|                                     ✦ Backtracking: restaurando cursor físico 11 -> 11
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=9>:
+|                                         ◦ Savepoint creado: pos=11, virtual=0, bracket=0
+|                                         ◦ Consumiendo [11]: NUMBER = 1.0
+|                                         ✓ Cursor físico avanzado a posición 12
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node Opt L=7>:
+|                                 ◦ Savepoint creado: pos=12, virtual=0, bracket=0
+├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<Node MatchToken L=8>:
+|                                     ◦ Savepoint creado: pos=12, virtual=0, bracket=0
+|                                     ◦ Consumiendo [12]: EOF = None
+|                                     ✓ Cursor físico avanzado a posición 13
+|                                     ✦ Backtracking: restaurando cursor físico 13 -> 12
+|                                 ✦ Backtracking: restaurando cursor físico 12 -> 12
+|         ◦ Consumiendo [12]: EOF = None
+|         ✓ Cursor físico avanzado a posición 13
+|         ✓ Análisis sintáctico finalizado con éxito
