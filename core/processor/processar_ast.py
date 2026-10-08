@@ -2,6 +2,8 @@ from __future__ import annotations
 import os
 from typing import Optional
 import gram
+from core.processor.visitors import *
+from core.processor import objects
 
 
 def visit_decl(node: gram.ASTNode) -> str:
