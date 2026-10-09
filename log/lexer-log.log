@@ -194,21 +194,13 @@ Stack lexer-log ├<Node LEXER L=0>:
 |             ◦ Carácter recibido: '('
 |             ◦ Buscando símbolo desde línea 15, columna 27
 |             ✓ Símbolo reconocido: '(' -> Token.LPAREN
-├━━━━━━━━━━━━<Node VISITOR-WORD L=2>:
-|             ◦ Carácter recibido: 'i'
-|             ◦ Inicio de palabra en línea 15, columna 28
-|             ✓ Palabra clave reconocida: 'int'
-├━━━━━━━━━━━━<Node VISITOR-SYMBOL L=2>:
-|             ◦ Carácter recibido: ','
-|             ◦ Buscando símbolo desde línea 15, columna 31
-|             ✓ Símbolo reconocido: ',' -> Token.COMMA
 ├━━━━━━━━━━━━<Node VISITOR-NUMBER L=2>:
-|             ◦ Carácter recibido: '1'
-|             ◦ Inicio de número en línea 15, columna 33
-|             ✓ Número procesado: 10 (int)
+|             ◦ Carácter recibido: '4'
+|             ◦ Inicio de número en línea 15, columna 28
+|             ✓ Número procesado: 40 (int)
 ├━━━━━━━━━━━━<Node VISITOR-SYMBOL L=2>:
 |             ◦ Carácter recibido: ')'
-|             ◦ Buscando símbolo desde línea 15, columna 35
+|             ◦ Buscando símbolo desde línea 15, columna 30
 |             ✓ Símbolo reconocido: ')' -> Token.RPAREN
 ├━━━━━━━━━━━━<Node VISITOR-WORD L=2>:
 |             ◦ Carácter recibido: 'i'
@@ -307,4 +299,4 @@ Stack lexer-log ├<Node LEXER L=0>:
 |             ◦ Carácter recibido: ')'
 |             ◦ Buscando símbolo desde línea 22, columna 23
 |             ✓ Símbolo reconocido: ')' -> Token.RPAREN
-|         ✓ Análisis léxico completado. Total de tokens generados: 82
+|         ✓ Análisis léxico completado. Total de tokens generados: 80

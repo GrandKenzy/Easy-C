@@ -1,20 +1,21 @@
+#include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
-int duplicar(int n){
-    int resultado = n;
+int64_t duplicar(int64_t n){
+    int64_t resultado = n;
     return resultado;
 }
-int contador = 0;
+int64_t contador = 0;
 int i = 0;
 while (i < 5) {
     contador = i;
     i++;
 }
-int* puntero_buffer = (int*)malloc(sizeof(int) * 10);
+void* puntero_buffer = malloc(40);
 if (!puntero_buffer) {
     printf("%s\n", "no se pudo crear el espacio");
 } else {
-    *puntero_buffer = 42;
-    printf("%s %d\n", "El valor del buffer es", *puntero_buffer);
+    puntero_buffer = 42;
+    printf("%s %p\n", "El valor del buffer es", puntero_buffer);
     free(puntero_buffer);
 }
