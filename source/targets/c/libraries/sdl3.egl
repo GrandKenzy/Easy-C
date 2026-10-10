@@ -7,6 +7,36 @@ struct Rect:
     int w
     int h
 
+struct FRect:
+    float x
+    float y
+    float w
+    float h
+
+struct Event:
+    uint32 type
+    uint32 _p1
+    uint64 _p2
+    uint64 _p3
+    uint64 _p4
+    uint64 _p5
+    uint64 _p6
+    uint64 _p7
+    uint64 _p8
+    uint64 _p9
+    uint64 _p10
+    uint64 _p11
+    uint64 _p12
+    uint64 _p13
+    uint64 _p14
+    uint64 _p15
+    uint64 _p16
+
+enum EventType:
+    QUIT = 256
+
+uint32 EVENT_QUIT = 256
+
 class Window:
     void __init__(self, pstring title, int width = 640, int height = 480):
         __void_p_t__ self._handle = create_window(title, width, height, 0)
