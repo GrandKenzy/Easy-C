@@ -1,0 +1,40 @@
+; ==============================================================================
+; Firmas de Simple DirectMedia Layer 3 (SDL3) para Easy-C (EGL)
+; ==============================================================================
+@header SDL3/SDL.h
+@link SDL3
+@bin SDL3.dll
+
+; --- Inicializacion y Ciclo de Vida ---
+bool SDL_Init(uint flags)
+void SDL_Quit()
+str SDL_GetError()
+
+; --- Manejo de Ventanas ---
+ptr SDL_CreateWindow(str title, int w, int h, uint64 flags)
+void SDL_DestroyWindow(ptr window)
+bool SDL_ShowWindow(ptr window)
+bool SDL_HideWindow(ptr window)
+ptr SDL_GetWindowTitle(ptr window)
+bool SDL_SetWindowTitle(ptr window, str title)
+bool SDL_SetWindowPosition(ptr window, int x, int y)
+bool SDL_SetWindowSize(ptr window, int w, int h)
+
+; --- Renderizado 2D ---
+ptr SDL_CreateRenderer(ptr window, str name)
+void SDL_DestroyRenderer(ptr renderer)
+bool SDL_SetRenderDrawColor(ptr renderer, uint8 r, uint8 g, uint8 b, uint8 a)
+bool SDL_RenderClear(ptr renderer)
+bool SDL_RenderPresent(ptr renderer)
+bool SDL_RenderPoint(ptr renderer, float x, float y)
+bool SDL_RenderLine(ptr renderer, float x1, float y1, float x2, float y2)
+
+; --- Eventos y Entrada ---
+bool SDL_PollEvent(ptr event)
+bool SDL_PumpEvents()
+
+; --- Tiempo ---
+void SDL_Delay(uint32 ms)
+uint64 SDL_GetTicks()
+uint64 SDL_GetPerformanceCounter()
+uint64 SDL_GetPerformanceFrequency()

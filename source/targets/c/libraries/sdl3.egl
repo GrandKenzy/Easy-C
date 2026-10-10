@@ -1,0 +1,32 @@
+include "sdl3" as C_SDL3
+import standard
+
+bool init(uint flags):
+    return C_SDL3.SDL_Init(flags)
+
+void quit():
+    C_SDL3.SDL_Quit()
+
+ptr create_window(str title, int width, int height, uint64 flags):
+    return C_SDL3.SDL_CreateWindow(title, width, height, flags)
+
+void destroy_window(ptr window):
+    C_SDL3.SDL_DestroyWindow(window)
+
+ptr create_renderer(ptr window, str name):
+    return C_SDL3.SDL_CreateRenderer(window, name)
+
+void destroy_renderer(ptr renderer):
+    C_SDL3.SDL_DestroyRenderer(renderer)
+
+bool set_draw_color(ptr renderer, uint8 r, uint8 g, uint8 b, uint8 a):
+    return C_SDL3.SDL_SetRenderDrawColor(renderer, r, g, b, a)
+
+bool clear(ptr renderer):
+    return C_SDL3.SDL_RenderClear(renderer)
+
+bool present(ptr renderer):
+    return C_SDL3.SDL_RenderPresent(renderer)
+
+void delay(uint32 ms):
+    C_SDL3.SDL_Delay(ms)
