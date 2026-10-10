@@ -1,0 +1,11 @@
+
+include "windows" as C_Windows
+import standard
+
+char character = ""
+
+C_Windows.MessageBox(Null, "Hola desde Easy-C", "Mi ventana", 0)
+
+
+int create_window(char c):
+    return 0
