@@ -1,6 +1,9 @@
 ; ==============================================================================
 ; Firmas de Windows API (windows.h) para Easy-C (EGL)
 ; ==============================================================================
+@header windows.h
+@link user32
+
 
 ; --- Dialogos y Ventanas Emergentes ---
 int MessageBoxA(ptr hWnd, str lpText, str lpCaption, uint uType) as MessageBox
