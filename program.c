@@ -1,88 +1,103 @@
 #include <SDL3/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <string.h>
 
-typedef struct Window {
-    void* handle;
-} Window;
+typedef struct inmodule_sdl3_Rect {
+    int x;
+    int y;
+    int w;
+    int h;
+} inmodule_sdl3_Rect;
+typedef struct inmodule_sdl3_Window {
+    void* _handle;
+    void* _renderer;
+} inmodule_sdl3_Window;
+typedef struct inmodule_standard_str {
+    void* _ptr;
+    uint64_t _len;
+    void* value;
+    size_t size;
+} inmodule_standard_str;
 
-bool inmodule_sdl3_init(unsigned int flags);
-void inmodule_sdl3_quit();
-void* inmodule_sdl3_create_window(char* title, int width, int height, uint64_t flags);
-void inmodule_sdl3_destroy_window(void* window);
-void* inmodule_sdl3_create_renderer(void* window, char* name);
-void inmodule_sdl3_destroy_renderer(void* renderer);
-bool inmodule_sdl3_set_draw_color(void* renderer, uint8_t r, uint8_t g, uint8_t b, uint8_t a);
-bool inmodule_sdl3_clear(void* renderer);
-bool inmodule_sdl3_present(void* renderer);
-void inmodule_sdl3_delay(uint32_t ms);
-void Window___init__(Window* self, char* title);
-void Window_destroy(Window* self);
-Window Window_create(char* title);
+inmodule_sdl3_Rect inmodule_sdl3_Rect_create(int64_t x, int64_t y, int64_t w, int64_t h);
+void inmodule_sdl3_Window___init__(inmodule_sdl3_Window* self, char* title, int width, int height);
+void inmodule_sdl3_Window_destroy(inmodule_sdl3_Window* self);
+inmodule_sdl3_Window inmodule_sdl3_Window_create(char* title, int64_t width, int64_t height);
+void inmodule_standard_str___new__(inmodule_standard_str* self);
+void inmodule_standard_str___init__(inmodule_standard_str* self);
+int inmodule_standard_str___size__(inmodule_standard_str* self);
+int inmodule_standard_str_len(inmodule_standard_str* self);
+inmodule_standard_str inmodule_standard_str_create();
 
-bool inmodule_sdl3_init(unsigned int flags){
-    return SDL_Init(flags);
+inmodule_sdl3_Rect inmodule_sdl3_Rect_create(int64_t x, int64_t y, int64_t w, int64_t h) {
+    inmodule_sdl3_Rect self;
+    memset(&self, 0, sizeof(inmodule_sdl3_Rect));
+        self.x = x;
+    self.y = y;
+    self.w = w;
+    self.h = h;
+    return self;
 }
 
-void inmodule_sdl3_quit(){
-    SDL_Quit();
+void inmodule_sdl3_Window___init__(inmodule_sdl3_Window* self, char* title, int width, int height){
+    self->_handle = SDL_CreateWindow(title, width, height, 0);
+    self->_renderer = SDL_CreateRenderer(self->_handle, NULL);
 }
 
-void* inmodule_sdl3_create_window(char* title, int width, int height, uint64_t flags){
-    return SDL_CreateWindow(title, width, height, flags);
+void inmodule_sdl3_Window_destroy(inmodule_sdl3_Window* self){
+    SDL_DestroyRenderer(self->_renderer);
+    SDL_DestroyWindow(self->_handle);
 }
 
-void inmodule_sdl3_destroy_window(void* window){
-    SDL_DestroyWindow(window);
+inmodule_sdl3_Window inmodule_sdl3_Window_create(char* title, int64_t width, int64_t height) {
+    inmodule_sdl3_Window self;
+    memset(&self, 0, sizeof(inmodule_sdl3_Window));
+    inmodule_sdl3_Window___init__(&self, title, width, height);
+    return self;
 }
 
-void* inmodule_sdl3_create_renderer(void* window, char* name){
-    return SDL_CreateRenderer(window, name);
+void inmodule_standard_str___new__(inmodule_standard_str* self){
+    char* value = NULL;
+    value = "";
+    size_t size = strlen(value);
+    self->_ptr = malloc(sizeof(char) * size + 1);
+    self->_len = size;
+    strcpy(self->_ptr, value);
 }
 
-void inmodule_sdl3_destroy_renderer(void* renderer){
-    SDL_DestroyRenderer(renderer);
+void inmodule_standard_str___init__(inmodule_standard_str* self){
 }
 
-bool inmodule_sdl3_set_draw_color(void* renderer, uint8_t r, uint8_t g, uint8_t b, uint8_t a){
-    return SDL_SetRenderDrawColor(renderer, r, g, b, a);
+int inmodule_standard_str___size__(inmodule_standard_str* self){
+    return self->_len + 1;
 }
 
-bool inmodule_sdl3_clear(void* renderer){
-    return SDL_RenderClear(renderer);
+int inmodule_standard_str_len(inmodule_standard_str* self){
+    return self->_len;
 }
 
-bool inmodule_sdl3_present(void* renderer){
-    return SDL_RenderPresent(renderer);
-}
-
-void inmodule_sdl3_delay(uint32_t ms){
-    SDL_Delay(ms);
-}
-
-void Window___init__(Window* self, char* title){
-    self->handle = inmodule_sdl3_create_window(title, 640, 480, 0);
-}
-
-void Window_destroy(Window* self){
-    inmodule_sdl3_destroy_window(self->handle);
-}
-
-Window Window_create(char* title) {
-    Window self;
-    memset(&self, 0, sizeof(Window));
-    Window___init__(&self, title);
+inmodule_standard_str inmodule_standard_str_create() {
+    inmodule_standard_str self;
+    memset(&self, 0, sizeof(inmodule_standard_str));
+    inmodule_standard_str___init__(&self);
     return self;
 }
 
 int main(int argc, char** argv) {
-    inmodule_sdl3_init(0);
-    Window mi_ventana = Window_create("Hola desde Window en Easy-C");
-    inmodule_sdl3_delay(500);
-    Window_destroy(&mi_ventana);
-    inmodule_sdl3_quit();
+    inmodule_sdl3_Rect r = inmodule_sdl3_Rect_create(10, 20, 100, 200);
+    inmodule_sdl3_Rect r2 = {0};
+    int i = 0;
+while (i < 3) {
+    printf("%d\n", i);
+    i++;
+}
+    SDL_Init(0);
+    inmodule_sdl3_Window mi_ventana = inmodule_sdl3_Window_create("Hola desde Window en Easy-C", 640, 480);
+    SDL_Delay(500);
+    inmodule_sdl3_Window_destroy(&mi_ventana);
+    SDL_Quit();
     return 0;
 }
