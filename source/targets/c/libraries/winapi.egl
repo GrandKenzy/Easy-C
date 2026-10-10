@@ -2,10 +2,9 @@
 include "windows" as C_Windows
 import standard
 
-char character = ""
+char character = "a"
+print(character)
 
-C_Windows.MessageBox(Null, "Hola desde Easy-C", "Mi ventana", 0)
-
-
-int create_window(char c):
-    return 0
+int create_window(__void_p_t__ HWND, pstring message, pstring title, uint flags):
+    int res = C_Windows.MessageBox(HWND, message, title, flags)
+    return res
