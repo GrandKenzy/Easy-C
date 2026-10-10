@@ -1,6 +1,9 @@
 include "sdl3" as C_SDL3
 import standard
 
+
+
+
 bool init(uint flags):
     return C_SDL3.SDL_Init(flags)
 

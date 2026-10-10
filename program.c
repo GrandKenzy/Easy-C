@@ -3,6 +3,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <string.h>
+
+typedef struct Window {
+    void* handle;
+} Window;
 
 bool inmodule_sdl3_init(unsigned int flags);
 void inmodule_sdl3_quit();
@@ -14,6 +19,9 @@ bool inmodule_sdl3_set_draw_color(void* renderer, uint8_t r, uint8_t g, uint8_t 
 bool inmodule_sdl3_clear(void* renderer);
 bool inmodule_sdl3_present(void* renderer);
 void inmodule_sdl3_delay(uint32_t ms);
+void Window___init__(Window* self, char* title);
+void Window_destroy(Window* self);
+Window Window_create(char* title);
 
 bool inmodule_sdl3_init(unsigned int flags){
     return SDL_Init(flags);
@@ -55,11 +63,26 @@ void inmodule_sdl3_delay(uint32_t ms){
     SDL_Delay(ms);
 }
 
+void Window___init__(Window* self, char* title){
+    self->handle = inmodule_sdl3_create_window(title, 640, 480, 0);
+}
+
+void Window_destroy(Window* self){
+    inmodule_sdl3_destroy_window(self->handle);
+}
+
+Window Window_create(char* title) {
+    Window self;
+    memset(&self, 0, sizeof(Window));
+    Window___init__(&self, title);
+    return self;
+}
+
 int main(int argc, char** argv) {
     inmodule_sdl3_init(0);
-    void* win = inmodule_sdl3_create_window("Ventana SDL3 en Easy-C", 640, 480, 0);
+    Window mi_ventana = Window_create("Hola desde Window en Easy-C");
     inmodule_sdl3_delay(500);
-    inmodule_sdl3_destroy_window(win);
+    Window_destroy(&mi_ventana);
     inmodule_sdl3_quit();
     return 0;
 }
